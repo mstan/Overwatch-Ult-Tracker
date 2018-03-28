@@ -1,0 +1,114 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="shared-styles.html">
+<link rel="import" href="./hero-card.html">
+<link rel="import" href="../../bower_components/polymer/lib/elements/dom-repeat.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+
+<dom-module id="all-cards">
+    <template>
+      <style include="shared-styles">
+        :host {
+          display: block;
+          padding: 10px;
+        }
+
+        paper-input {
+          max-width: 400px;
+          margin: auto;
+        }
+
+        paper-button.indigo {
+          background-color: var(--paper-indigo-500);
+          color: white;
+          --paper-button-raised-keyboard-focus: {
+            background-color: var(--paper-pink-a200) !important;
+            color: white !important;
+          };
+        }
+
+        paper-button.indigo:hover {
+          background-color: var(--paper-indigo-400);
+        }
+
+        .card {
+          margin: auto;
+          text-align: center;
+        }
+
+        .input-card {
+          width: 500px;
+        }
+      </style>
+
+
+      <template is="dom-repeat" as="hero" items="{{heroesArray}}">
+        <hero-card hero="[[hero]]"></hero-card>
+      </template>
+      <!-- Change the stats source -->
+      <div class="card input-card">
+        <h1>Source</h1>
+        <paper-input id="statsSourceInput" label="(e.g. global, leaderboards, Gamemaster1k#1868)" value="leaderboards">
+        </paper-input>
+        <paper-button raised class="indigo" on-click="updateStatsSource">Update</paper-button>
+      </div>
+    </template>
+
+  <script>
+    class AllCards extends Polymer.Element {
+      static get is() { return 'all-cards'; }
+
+      static get properties() {
+        return {
+          heroesArray: {
+            type: Array,
+            computed: "_heroesToArray(heroesObject)"
+          },
+          pageTitle: {
+            type: String,
+            notify: true
+          },
+          statsSource: {
+            type: String,
+            notify: true
+          }
+        }
+      }
+
+      ready() {
+        super.ready();
+        this.set("pageTitle", "All Heroes");
+      }
+
+      updateStatsSource() {
+        var statsSourceInputValue = this.$.statsSourceInput.value;
+        statsSourceInputValue.replace(/#/i, '-'); // rewrite # to - for filename consistency
+
+        this.set("statsSource", statsSourceInputValue);
+        this.set("pageTitle", `All Heroes (${statsSourceInputValue})`)
+      }
+
+      _heroesToArray(obj) {
+        let arr = [];
+        for(let key in obj) {
+          let item = obj[key];
+          arr.push(item);
+        }
+
+        return arr;
+      }
+    }
+
+    window.customElements.define(AllCards.is, AllCards);
+  </script>
+</dom-module>

@@ -1,0 +1,184 @@
+{
+    "McCree": {
+        "battletag": "ǝǴIŖLĤUŊŦEŖ-1596",
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 2852,
+        "damageBoostedPerMinute": 0
+    },
+    "Tracer": {
+        "battletag": "Trick2Devil-1752",
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 2622,
+        "damageBoostedPerMinute": 0
+    },
+    "Doomfist": {
+        "battletag": "iYasSoR-2480",
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 2085,
+        "damageBoostedPerMinute": 0
+    },
+    "Torbjorn": {
+        "battletag": "Ginette-11824",
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 2908,
+        "damageBoostedPerMinute": 0
+    },
+    "Mei": {
+        "battletag": "sijoR-2129",
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 1702,
+        "damageBoostedPerMinute": 0
+    },
+    "Moira": {
+        "battletag": "xenowl-1572",
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 1799,
+        "damageBoostedPerMinute": 0
+    },
+    "Reaper": {
+        "battletag": "SoupsOnBaby-1392",
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 2557,
+        "damageBoostedPerMinute": 0
+    },
+    "Bastion": {
+        "battletag": "Aephios-1734",
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 3730,
+        "damageBoostedPerMinute": 0
+    },
+    "Mercy": {
+        "battletag": "bussanutAlt-2684",
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 1054,
+        "damageBoostedPerMinute": 0
+    },
+    "Symmetra": {
+        "battletag": "Seredrini-2171",
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 1796,
+        "damageBoostedPerMinute": 0
+    },
+    "Hanzo": {
+        "battletag": "PogChamp-21219",
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 2943,
+        "damageBoostedPerMinute": 0
+    },
+    "Zenyatta": {
+        "battletag": "FR3KT-2224",
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 1927,
+        "damageBoostedPerMinute": 0
+    },
+    "Soldier 76": {
+        "battletag": "Feskekörka-2857",
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 3090,
+        "damageBoostedPerMinute": 0
+    },
+    "Pharah": {
+        "battletag": "LOLMaster-11374",
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 3438,
+        "damageBoostedPerMinute": 0
+    },
+    "Roadhog": {
+        "battletag": "Prairiefield-11985",
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 3544,
+        "damageBoostedPerMinute": 0
+    },
+    "Orisa": {
+        "battletag": "Filleraol-2171",
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 2591,
+        "damageBoostedPerMinute": 0
+    },
+    "Sombra": {
+        "battletag": "ȆGĨRLĤUŊTȆŖ-1625",
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 2329,
+        "damageBoostedPerMinute": 0
+    },
+    "DVa": {
+        "battletag": "Grape-1714",
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 2996,
+        "damageBoostedPerMinute": 0
+    },
+    "Junkrat": {
+        "battletag": "D4RKSŦAR-2747",
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 3515,
+        "damageBoostedPerMinute": 0
+    },
+    "Lucio": {
+        "battletag": "antitrop-1220",
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 1365,
+        "damageBoostedPerMinute": 0
+    },
+    "Genji": {
+        "battletag": "Pugs-11287",
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 2721,
+        "damageBoostedPerMinute": 0
+    },
+    "Ana": {
+        "battletag": "diPLo-21819",
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 973,
+        "damageBoostedPerMinute": 0
+    },
+    "Winston": {
+        "battletag": "FreshSEAFOOD-1830",
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 1955,
+        "damageBoostedPerMinute": 0
+    },
+    "Reinhardt": {
+        "battletag": "Deadking-2219",
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 2066,
+        "damageBoostedPerMinute": 0
+    },
+    "Widowmaker": {
+        "battletag": "Panda-29746",
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 2319,
+        "damageBoostedPerMinute": 0
+    },
+    "Zarya": {
+        "battletag": "Smex-21111",
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 3006,
+        "damageBoostedPerMinute": 0
+    }
+}

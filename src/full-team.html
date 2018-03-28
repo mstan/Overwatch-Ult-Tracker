@@ -1,0 +1,88 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="shared-styles.html">
+<link rel="import" href="./hero-card.html">
+
+<dom-module id="full-team">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+
+        padding: 10px;
+      }
+    </style>
+
+      <hero-card 
+          name="hero-card-Tracer"
+          hero-name="Tracer"
+          required-charge="1125"
+          charge-healing-modifier="0"
+          charge-damage-boost-Modifier="0"
+      ></hero-card>
+      <hero-card 
+        name="hero-card-McCree"
+        hero-name="McCree"
+        required-charge="1500"
+        charge-healing-modifier="0"
+        charge-damage-boost-Modifier="0"
+      ></hero-card>
+      <hero-card 
+        name="hero-card-Reinhardt"
+        hero-name="Reinhardt"
+        required-charge="1800"
+        charge-healing-modifier="0"
+        charge-damage-boost-Modifier="0"
+      ></hero-card>
+      <hero-card 
+        name="hero-card-Roadhog"
+        hero-name="Roadhog"
+        required-charge="2100"
+        charge-healing-modifier="0"
+        charge-damage-boost-Modifier="0"
+      ></hero-card>
+      <hero-card 
+        name="hero-card-Mercy"
+        hero-name="Mercy"
+        required-charge="1125"
+        charge-healing-modifier=".67"
+        charge-damage-boost-modifier=".8"
+      ></hero-card>
+      <hero-card 
+        name="hero-card-Lucio"
+        hero-name="Lucio"
+        required-charge="2800"
+        charge-healing-modifier=".67"
+        charge-damage-boost-modifier="0"
+      ></hero-card>
+  </template>
+
+  <script>
+    class FullTeam extends Polymer.Element {
+      static get is() { return 'full-team'; }
+
+      _changeHeroCard() {
+      }
+
+      ready() {
+        super.ready();
+
+        var x = this.$['hero-card-1'];
+
+        console.log(x);
+      }
+
+    }
+
+    window.customElements.define(FullTeam.is, FullTeam);
+  </script>
+</dom-module>

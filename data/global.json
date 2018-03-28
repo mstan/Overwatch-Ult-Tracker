@@ -1,0 +1,158 @@
+{
+    "Doomfist": {
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 816,
+        "damageBoostedPerMinute": 0
+    },
+    "Tracer": {
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 1094,
+        "damageBoostedPerMinute": 0
+    },
+    "Hanzo": {
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 1259,
+        "damageBoostedPerMinute": 0
+    },
+    "Genji": {
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 1180,
+        "damageBoostedPerMinute": 0
+    },
+    "Lucio": {
+        "healingPerMinute": 880,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 586,
+        "damageBoostedPerMinute": 0
+    },
+    "Sombra": {
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 844,
+        "damageBoostedPerMinute": 0
+    },
+    "Symmetra": {
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 844,
+        "damageBoostedPerMinute": 0
+    },
+    "DVa": {
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 1313,
+        "damageBoostedPerMinute": 0
+    },
+    "Orisa": {
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 1188,
+        "damageBoostedPerMinute": 0
+    },
+    "Pharah": {
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 1470,
+        "damageBoostedPerMinute": 0
+    },
+    "Reinhardt": {
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 930,
+        "damageBoostedPerMinute": 0
+    },
+    "Zarya": {
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 1157,
+        "damageBoostedPerMinute": 0
+    },
+    "Junkrat": {
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 1613,
+        "damageBoostedPerMinute": 0
+    },
+    "Soldier 76": {
+        "healingPerMinute": 184,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 1412,
+        "damageBoostedPerMinute": 0
+    },
+    "Moira": {
+        "healingPerMinute": 1105,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 611,
+        "damageBoostedPerMinute": 0
+    },
+    "Zenyatta": {
+        "healingPerMinute": 691,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 839,
+        "damageBoostedPerMinute": 0
+    },
+    "Mei": {
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 743,
+        "damageBoostedPerMinute": 0
+    },
+    "Torbjorn": {
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 1403,
+        "damageBoostedPerMinute": 0
+    },
+    "McCree": {
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 1203,
+        "damageBoostedPerMinute": 0
+    },
+    "Widowmaker": {
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 954,
+        "damageBoostedPerMinute": 0
+    },
+    "Ana": {
+        "healingPerMinute": 805,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 352,
+        "damageBoostedPerMinute": 0
+    },
+    "Mercy": {
+        "healingPerMinute": 1124,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 36,
+        "damageBoostedPerMinute": 0
+    },
+    "Winston": {
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 809,
+        "damageBoostedPerMinute": 0
+    },
+    "Reaper": {
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 1286,
+        "damageBoostedPerMinute": 0
+    },
+    "Bastion": {
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 1918,
+        "damageBoostedPerMinute": 0
+    },
+    "Roadhog": {
+        "healingPerMinute": 0,
+        "selfHealingPerMinute": 0,
+        "damagePerMinute": 1318,
+        "damageBoostedPerMinute": 0
+    }
+}

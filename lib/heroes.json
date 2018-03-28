@@ -1,0 +1,319 @@
+{
+"Doomfist":{  
+   "masterOverwatch":{  
+      "token":"26-doomfist"
+   },
+   "abilities":{  
+      "ultimate":{  
+         "requiredCharge":1500,
+         "chargeHealingModifier":0,
+         "chargeDamageBoostModifier":0
+      }
+   }
+},
+"Genji":{  
+   "masterOverwatch":{  
+      "token":"21-genji"
+   },
+   "abilities":{  
+      "ultimate":{  
+         "requiredCharge":1500,
+         "chargeHealingModifier":0,
+         "chargeDamageBoostModifier":0
+      }
+   }
+},
+"McCree":{  
+   "masterOverwatch":{  
+      "token":"6-mccree"
+   },
+   "abilities":{  
+      "ultimate":{  
+         "requiredCharge":1500,
+         "chargeHealingModifier":0,
+         "chargeDamageBoostModifier":0
+      }
+   }
+},
+"Pharah":{  
+   "masterOverwatch":{  
+      "token":"11-pharah"
+   },
+   "abilities":{  
+      "ultimate":{  
+         "requiredCharge":1850,
+         "chargeHealingModifier":0,
+         "chargeDamageBoostModifier":0
+      }
+   }
+},
+"Reaper":{  
+   "masterOverwatch":{  
+      "token":"8-reaper"
+   },
+   "abilities":{  
+      "ultimate":{  
+         "requiredCharge":1850,
+         "chargeHealingModifier":0,
+         "chargeDamageBoostModifier":0
+      }
+   }
+},
+"Soldier 76":{  
+   "masterOverwatch":{  
+      "token":"4-soldier-76"
+   },
+   "abilities":{  
+      "ultimate":{  
+         "requiredCharge":2075,
+         "chargeHealingModifier":1,
+         "chargeDamageBoostModifier":0
+      }
+   }
+},
+"Sombra":{  
+   "masterOverwatch":{  
+      "token":"24-sombra"
+   },
+   "abilities":{  
+      "ultimate":{  
+         "requiredCharge":1250,
+         "chargeHealingModifier":0,
+         "chargeDamageBoostModifier":0
+      }
+   }
+},
+"Tracer":{  
+   "masterOverwatch":{  
+      "token":"7-tracer"
+   },
+   "abilities":{  
+      "ultimate":{  
+         "requiredCharge":1125,
+         "chargeHealingModifier":0,
+         "chargeDamageBoostModifier":0
+      }
+   }
+},
+"Bastion":{  
+   "masterOverwatch":{  
+      "token":"15-bastion"
+   },
+   "abilities":{  
+      "ultimate":{  
+         "requiredCharge":2075,
+         "chargeHealingModifier":0,
+         "chargeDamageBoostModifier":0
+      }
+   }
+},
+"Hanzo":{  
+   "masterOverwatch":{  
+      "token":"16-hanzo"
+   },
+   "abilities":{  
+      "ultimate":{  
+         "requiredCharge":1500,
+         "chargeHealingModifier":0,
+         "chargeDamageBoostModifier":0
+      }
+   }
+},
+"Junkrat":{  
+   "masterOverwatch":{  
+      "token":"2-junkrat"
+   },
+   "abilities":{  
+      "ultimate":{  
+         "requiredCharge":1575,
+         "chargeHealingModifier":0,
+         "chargeDamageBoostModifier":0
+      }
+   }
+},
+"Mei":{  
+   "masterOverwatch":{  
+      "token":"20-mei"
+   },
+   "abilities":{  
+      "ultimate":{  
+         "requiredCharge":1450,
+         "chargeHealingModifier":0,
+         "chargeDamageBoostModifier":0
+      }
+   }
+},
+"Torbjorn":{  
+   "masterOverwatch":{  
+      "token":"14-torbjrn"
+   },
+   "abilities":{  
+      "ultimate":{  
+         "requiredCharge":1625,
+         "chargeHealingModifier":0,
+         "chargeDamageBoostModifier":0
+      }
+   }
+},
+"Widowmaker":{  
+   "masterOverwatch":{  
+      "token":"9-widowmaker"
+   },
+   "abilities":{  
+      "ultimate":{  
+         "requiredCharge":1375,
+         "chargeHealingModifier":0,
+         "chargeDamageBoostModifier":0
+      }
+   }
+},
+"DVa":{  
+   "masterOverwatch":{  
+      "token":"22-d-va"
+   },
+   "abilities":{  
+      "ultimate":{  
+         "requiredCharge":1375,
+         "chargeHealingModifier":0,
+         "chargeDamageBoostModifier":0
+      },
+      "ultimate2":{  
+         "requiredCharge":300,
+         "chargeHealingModifier":0,
+         "chargeDamageBoostModifier":0
+      }
+   }
+},
+"Orisa":{  
+   "masterOverwatch":{  
+      "token":"25-orisa"
+   },
+   "abilities":{  
+      "ultimate":{  
+         "requiredCharge":1725,
+         "chargeHealingModifier":0,
+         "chargeDamageBoostModifier":0
+      }
+   }
+},
+"Reinhardt":{  
+   "masterOverwatch":{  
+      "token":"12-reinhardt"
+   },
+   "abilities":{  
+      "ultimate":{  
+         "requiredCharge":1375,
+         "chargeHealingModifier":0,
+         "chargeDamageBoostModifier":0
+      }
+   }
+},
+"Roadhog":{  
+   "masterOverwatch":{  
+      "token":"1-roadhog"
+   },
+   "abilities":{  
+      "ultimate":{  
+         "requiredCharge":2000,
+         "chargeHealingModifier":0,
+         "chargeDamageBoostModifier":0
+      }
+   }
+},
+"Winston":{  
+   "masterOverwatch":{  
+      "token":"10-winston"
+   },
+   "abilities":{  
+      "ultimate":{  
+         "requiredCharge":1375,
+         "chargeHealingModifier":0,
+         "chargeDamageBoostModifier":0
+      }
+   }
+},
+"Zarya":{  
+   "masterOverwatch":{  
+      "token":"5-zarya"
+   },
+   "abilities":{  
+      "ultimate":{  
+         "requiredCharge":1875,
+         "chargeHealingModifier":0,
+         "chargeDamageBoostModifier":0
+      }
+   }
+},
+"Ana":{  
+   "masterOverwatch":{  
+      "token":"23-ana"
+   },
+   "abilities":{  
+      "ultimate":{  
+         "requiredCharge":1650,
+         "chargeHealingModifier":1,
+         "chargeDamageBoostModifier":0
+      }
+   }
+},
+"Lucio":{  
+   "masterOverwatch":{  
+      "token":"3-lucio"
+   },
+   "abilities":{  
+      "ultimate":{  
+         "requiredCharge":2625,
+         "chargeHealingModifier":0.789473684210526,
+         "chargeDamageBoostModifier":0
+      }
+   }
+},
+"Mercy":{  
+   "masterOverwatch":{  
+      "token":"17-mercy"
+   },
+   "abilities":{  
+      "ultimate":{  
+         "requiredCharge":1625,
+         "chargeHealingModifier":0.8,
+         "chargeDamageBoostModifier":0.67
+      }
+   }
+},
+"Moira":{  
+   "masterOverwatch":{  
+      "token":"27-moira"
+   },
+   "abilities":{  
+      "ultimate":{  
+         "requiredCharge":2125,
+         "chargeHealingModifier":1.2,
+         "chargeDamageBoostModifier":0
+      }
+   }
+},
+"Symmetra":{  
+   "masterOverwatch":{  
+      "token":"13-symmetra"
+   },
+   "abilities":{  
+      "ultimate":{  
+         "requiredCharge":1000,
+         "chargeHealingModifier":0,
+         "chargeDamageBoostModifier":0
+      }
+   }
+},
+"Zenyatta":{  
+   "masterOverwatch":{  
+      "token":"18-zenyatta"
+   },
+   "abilities":{  
+      "ultimate":{  
+         "requiredCharge":2075,
+         "chargeHealingModifier":0.75757575757,
+         "chargeDamageBoostModifier":0
+      }
+   }
+}
+}

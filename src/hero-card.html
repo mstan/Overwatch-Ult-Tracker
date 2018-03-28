@@ -1,0 +1,229 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="hero-card">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: inline-block;
+        padding: 5%;
+        min-width: 20%;
+      }
+
+      paper-button.small {
+        min-width: 25px;
+        min-height: 10px;
+        padding: 2% 2%;
+        font-size: 12px;
+      }
+
+      paper-button.green {
+        background-color:  #32CD32;
+        color: white;
+        --paper-button-raised-keyboard-focus: {
+          background-color: var(--paper-pink-a200) !important;
+          color: white !important;
+        };
+      }
+
+      paper-button.green:hover {
+        background-color: #7FFF00;
+      }
+
+      paper-button.yellow {
+        background-color:  #CCCC00;
+        color: white;
+        --paper-button-raised-keyboard-focus: {
+          background-color: var(--paper-pink-a200) !important;
+          color: white !important;
+        };
+      }
+
+      paper-button.yellow:hover {
+        background-color: #FFFF33;
+      }
+
+      paper-button.red {
+        background-color:  #FF0000;
+        color: white;
+        --paper-button-raised-keyboard-focus: {
+          background-color: var(--paper-pink-a200) !important;
+          color: white !important;
+        };
+      }
+
+      paper-button.red:hover {
+        background-color: #FF6666;
+      }
+
+      .time {
+        font-size: 30px;
+      }
+
+      .battletag {
+        font-size: 12px;
+      }
+
+      .card {
+        margin: auto;
+        text-align: center;
+      }
+    </style>
+
+    <div class="card">
+      <img 
+        src="../images/portraits/[[hero.name]].png" 
+        class="circle"
+      />
+      <p>[[hero.name]] </p> 
+      <span class="battletag">[[hero.stats.battletag]]</span>
+      <p>[[currentCharge]] / [[hero.abilities.ultimate.requiredCharge]]</p>
+      <p>[[currentPercentage]] % </p>
+      <p>
+        <span class="time">[[timeRemaining]]</span>
+        <br/> seconds
+      </p> 
+      
+      <paper-button raised class="green small" on-click="startTicker">Start</paper-button>
+      <paper-button raised class="yellow small" on-click="pauseTicker">Pause</paper-button>
+      <paper-button raised class="red small" on-click="resetTicker">Reset</paper-button>
+    </div>
+  </template>
+
+  <script>
+    class HeroCard extends Polymer.Element {
+      static get is() { return 'hero-card'; }
+
+      static get properties() {
+        return {
+          /*
+            Represents how much ultimate the hero currently has accumulated
+          */
+          currentCharge: {
+            type: Number,
+            value: 0
+          },
+          /*
+            For each interval (second that passes), this is how much ultimate the hero is gaining.
+            
+            A BUG EXISTS HERE WHERE THIS VALUE IS INITIALIZED BUT NOT UPDATING WHEN THE VALUES
+          */
+          incrementBy: {
+            type: Number,
+            computed: "_calculateIncrementBy(hero.stats.damagePerMinute, hero.stats.healingPerMinute, hero.abilities.ultimate.chargeHealingModifier)",
+          },
+          /*
+            Current charge divided by total required number of charge.
+          */
+          currentPercentage: {
+            type: Number,
+            value: 0
+          },
+          /*
+            How much we increment the percentage
+          */
+          incrementPercentage: {
+            type: Number,
+            computed: "_calculateCurrentPercentage(currentCharge, hero.abilities.ultimate.requiredCharge)"
+          },
+          /*
+            How many seconds it should take until the player has ultimate
+          */
+          timeRemaining: {
+            type: Number,
+            computed: "_timeRemaining(hero.abilities.ultimate.requiredCharge, currentCharge)"
+          },
+          /*
+            Is the timer currently running?
+          */
+          isRunning: {
+            type: Boolean,
+            value: false
+          }
+        }
+      }
+
+      static get observers() {
+        return [
+          '_heroStatsChanged(hero.stats.*)'
+        ]
+      }
+
+      _heroStatsChanged(history) {
+        console.log(history);
+      }
+
+      ready() {
+        super.ready();
+        this.ticker = this._ticker.bind(this);
+      }
+
+
+      _ticker() {
+        let incrementBy = this._calculateIncrementBy(this.hero.stats.damagePerMinute, this.hero.stats.healingPerMinute, this.hero.abilities.ultimate.chargeHealingModifier);
+
+        if( (this.currentCharge + incrementBy) >= this.hero.abilities.ultimate.requiredCharge) {
+          this.set("currentCharge", this.hero.abilities.ultimate.requiredCharge);
+          this.set("currentPercentage", 100);
+          this.set("timeRemaining", 0);
+
+          this.isRunning = false;
+          this.pauseTicker();
+        } else {
+          this.set("currentCharge", this.currentCharge +  incrementBy);
+          this.set("currentPercentage", this.incrementPercentage);
+          this.set("timeRemaining", this.timeRemaining--);
+        }
+      }
+
+      _timeRemaining(required, current) {
+        let increment = this._calculateIncrementBy(this.hero.stats.damagePerMinute, this.hero.stats.healingPerMinute, this.hero.abilities.ultimate.chargeHealingModifier);
+        return Math.round((required - current) / increment);
+      }
+
+      _calculateIncrementBy(dpm, hpm, chm) {
+        return Math.round( (dpm / 60) + ( (hpm * chm) / 60 ) );
+      }
+
+      _calculateCurrentPercentage(current, required) {
+        if(current > 0) {
+          return Math.round((current / required) * 100);
+        }
+      }
+
+      startTicker() {
+        if( !this.isRunning && (this.currentCharge <= this.hero.abilities.ultimate.requiredCharge)) {
+          this.isRunning = true;
+          this.timer = setInterval(this.ticker, 1000);
+        }
+      }
+
+      pauseTicker() {
+        this.isRunning = false;
+        clearInterval(this.timer);
+      }
+
+      resetTicker() {
+        this.set("currentCharge", 0);
+        this.set("currentPercentage", 0);
+        this.set("timeRemaining", this._timeRemaining(this.hero.abilities.ultimate.requiredCharge, 0) );
+      }
+
+    }
+
+    window.customElements.define(HeroCard.is, HeroCard);
+  </script>
+</dom-module>

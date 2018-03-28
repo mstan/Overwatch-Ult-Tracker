@@ -1,0 +1,256 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="hero-card">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: inline-block;
+        max-width: 300px;
+        padding: 30px;
+      }
+
+      .battletag {
+        font-size: 12px;
+      }
+
+      .card {
+        margin: auto;
+        text-align: center;
+      }
+
+
+    </style>
+
+    <div class="card">
+      <img 
+        src="../images/portraits/[[hero.name]].png" 
+        class="circle"
+      />
+      <h1>[[hero.name]] </h1> 
+      <span class="battletag">[[hero.stats.battletag]]</span>
+      <p>[[currentCharge]] / [[requiredCharge]]</p>
+      <p>[[currentPercentage]] % </p>
+      <p>[[secondsRemaining]] seconds</p> 
+
+      <button on-click="startTicker">Start</button>
+      <button on-click="pauseTicker">Pause</button>
+      <button on-click="resetTicker">Reset</button>
+    </div>
+  </template>
+
+  <script>
+    class HeroCard extends Polymer.Element {
+      static get is() { return 'hero-card'; }
+
+      static get properties() {
+        return {
+          //Hero's name
+          heroName: {
+            type: String,
+          },
+          statsSource: {
+            type: String,
+            observer: "_statsSourceChanged"
+          },
+          // passed as attribute
+          chargeHealingModifier: {
+            type: Number
+          },
+          // passed as attribute
+          chargeDamageBoostModifier: {
+            type: Number
+          },
+          // hero's total required charge -- passed as attribute
+          requiredCharge: {
+            type: Number,
+            computed: "_requiredCharge(hero.abilities.ultimate.requiredCharge)"
+          },
+          // this is calculated by using stats from window.heroStats and passed attributes
+          chargeIncrementBy: {
+            type: Number,
+            value: 0
+          },
+          // Hero's current charge
+          currentCharge: {
+            type: Number,
+            value: 0,
+            observer: "_onCurrentChargeChange"
+          },
+          //Hero's total charge percentage
+          currentPercentage: {
+            type: Number,
+            value: 0.00
+          },
+          // time remaining until hero has ultimate
+          secondsRemaining: {
+            type: Number
+          },
+          // whether the hero has ultimate
+          hasUltimate: {
+            type: Boolean,
+            value: false
+          },
+          // whether the timer itself is running
+          isRunning: {
+            type: Boolean,
+            //notify: true, // two way bindable. Notifies with an event of property-name-changed
+            value: false
+          }
+
+        }
+      }
+
+      _requiredCharge(requiredCharge) {
+        return requiredCharge;
+      }
+
+      //Called when current charge changes. Good to figure out percentage
+      _onCurrentChargeChange(charge) {
+        console.log("charge", charge)
+        this.currentPercentage = Math.min(
+            (this.currentCharge / this.requiredCharge * 100).toFixed(2),
+            100
+          )
+        //Decrement the number of seconds remaining until ultimate is 100%
+        this.secondsRemaining = Math.max(
+            Math.floor(( this.requiredCharge - this.currentCharge) / this.chargeIncrementBy ),
+            0
+          )
+        console.log(this.secondsRemaining)
+      }
+
+      _calculateChargeIncrementBy(dpm, hpm, chm) {
+        let CONSTANT_INCREMENT = 5;
+
+        let damagePerSecond = this.hero.stats.damagePerMinute / 60;
+        //let damageBoostedPerSecond = parseInt( window.heroStats[this.heroName].damageBoostedPerMinute) / 60;
+        let healingPerSecond = this.hero.stats.healingPerMinute / 60;
+        let selfHealingPerSecond = this.hero.stats.selfHealingPerMinute / 60;
+
+        let chargeIncrementBy = 
+          (damagePerSecond * 1) +
+          (healingPerSecond * this.hero.abilities.ultimate.chargeHealingModifier) +
+          (selfHealingPerSecond * 1) + 
+          CONSTANT_INCREMENT;
+
+        return chargeIncrementBy;
+      }
+
+      // Incrementing the current charge by the predetermined value
+      //TODO: Build implementation to increase the charge by a dynamic value
+      _incremementCharge() {
+        //While we do check to see if this is running already in startTicker,
+        //it is also important to check it here because of pause timer.
+        //If we execute pause timer, it will set the boolean to false but
+        //we will still be casting our loop, so we will be incrementing charge
+        //while it is not running
+        if(!this.isRunning) {
+          return;
+        }
+        //we achieved maximum required charge. pause/end the timer
+        if(this.currentCharge >= this.requiredCharge) {
+          this.currentCharge = this.requiredCharge; // set equal if current exceeds required
+          this.isRunning = false;
+          return;
+        } else {
+          //This block is a setTimeout that increments by the desired amount.
+          //We use a setTimeout block here to make it count per second, not instantly
+          setTimeout(() => {
+            //why am i setting this here. should it not already bet set?
+            let dpm = this.hero.stats.damagePerMinute;
+            let hpm = this.hero.stats.healingPerMinute;
+            let chm = this.hero.abilities.ultimate.chargeHealingModifier;
+            let chargeIncrementBy = this._calculateChargeIncrementBy(dpm, hpm, chm);
+            let setCurrentCharge = Math.floor(this.currentCharge + chargeIncrementBy);
+            //Increment the charge
+
+            this.set("currentCharge", setCurrentCharge);
+
+            window.requestAnimationFrame(this._incremementCharge.bind(this)); // this._incrementCharge()
+          }, 1000);
+        }
+      }
+
+      /*
+        TIMER CONTROLS
+      */
+      startTicker() {
+        if(this.isRunning) {
+          return;
+        }
+        this.isRunning = true;
+
+        window.requestAnimationFrame(this._incremementCharge.bind(this)); // this._incrementCharge();
+      }
+
+      pauseTicker() {
+        if(!this.isRunning) {
+          return;
+        } else {
+          this.isRunning = false;
+        }
+      }
+
+      resetTicker() {
+        this.currentCharge = 0; //Set the charge back to 0
+      }
+
+      /* 
+        A problem exists here in that this.hero.stats values are being grabbed to use
+        for calculation before this.hero.stats is actually changing. This event fires off
+        when the parameter for the ajax call to change is being modified, but NOT the result
+        of the ajax call (or the result of the new heroesArray is being built)
+
+        As such, we should instead pass the parent array to this card, and when that parent
+        array updates (or heroesArray.heroName), we know then that we should refactor these 
+        numbers as they will be the new stats values. We will need to presumably build listeners
+        for the object in all-cards to update heroes Array which is passed here
+      */
+      _statsSourceChanged() {
+        this.resetTicker();
+        this.pauseTicker();
+        this._initialLoad();
+      }
+
+      //Make a function here that observes statsSource and reloads
+      // when it does. Maybe figure out observer in parent of persistedData
+
+      //run on initial load or reload of card elements
+      _initialLoad() {
+        let dpm = this.hero.stats.damagePerMinute;
+        let hpm = this.hero.stats.healingPerMinute;
+        let chm = this.hero.abilities.ultimate.chargeHealingModifier;
+        let chargeIncrementBy = this._calculateChargeIncrementBy(dpm, hpm, chm);
+
+        if(this.hero.name === "Zenyatta") console.log(chargeIncrementBy)
+
+        this.set("chargeIncrementBy", chargeIncrementBy);
+        this.set("requiredCharge", this.hero.abilities.ultimate.requiredCharge);
+        // this function is an observer that NORMALLY runs when currentCharge changes. However, we want to manually execute just this once because otherwise it will have fired BEFORE
+        // _calculateChargeIncrementBy goes off. This allows it to calculate with incrementCharge not being zero (making it claim infinity seconds to build ultimate).
+        this._onCurrentChargeChange();
+      }
+
+      ready() {
+        super.ready();
+        this._initialLoad()
+      }
+
+    }
+
+    window.customElements.define(HeroCard.is, HeroCard);
+  </script>
+</dom-module>
